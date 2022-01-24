@@ -1,4 +1,4 @@
-import FavoriteMovieIdb from '../data/database';
+import FavoriteRestaurantdb from '../data/database';
 import { createFavoriteButtonTemplate, createFavoritedButtonTemplate } from '../views/templates/template-creator';
 
 const FavoriteButtonInitiator = {
@@ -20,26 +20,26 @@ const FavoriteButtonInitiator = {
   },
 
   async isRestaurantExist(id) {
-    const movie = await FavoriteMovieIdb.getMovie(id);
-    return !!movie;
+    const restaurant = await FavoriteRestaurantdb.getRestaurant(id);
+    return !!restaurant;
   },
 
   renderFavorite() {
-    this.likeButtonContainer.innerHTML = createFavoriteButtonTemplate();
+    this.favoriteButtonContainer.innerHTML = createFavoriteButtonTemplate();
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteMovieIdb.updateMovie(this.restaurant);
+      await FavoriteRestaurantdb.updateRestaurant(this.restaurant);
       this.renderButton();
     });
   },
 
   renderFavorited() {
-    this.likeButtonContainer.innerHTML = createFavoritedButtonTemplate();
+    this.favoriteButtonContainer.innerHTML = createFavoritedButtonTemplate();
 
-    const likeButton = document.querySelector('#likeButton');
-    likeButton.addEventListener('click', async () => {
-      await FavoriteMovieIdb.deleteMovie(this.restaurant.id);
+    const favoriteButton = document.querySelector('#favoriteButton');
+    favoriteButton.addEventListener('click', async () => {
+      await FavoriteRestaurantdb.deleteRestaurant(this.restaurant.id);
       this.renderButton();
     });
   },

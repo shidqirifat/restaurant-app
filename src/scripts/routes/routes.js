@@ -1,10 +1,10 @@
 import ListRestaurant from '../views/pages/list-restaurant';
-// import Detail from '../views/pages/detail';
+import Detail from '../views/pages/detail';
 // import Favorite from '../views/pages/favorite';
 
 const routes = {
   '/': ListRestaurant, // default page
-  // '/detail/:id': Detail,
+  '/detail/:id': Detail,
   // '/favorite': Favorite,
 };
 

@@ -32,15 +32,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   await app.renderPage();
   swRegister();
 
-  const searchButton = document.querySelector('search-bar'),
-    restaurantsContainer = document.getElementById("restaurant-container");;
+  const url = window.location.hash;
 
-  const onButtonSearchClicked = (e) => {
-    e.preventDefault();
-    restaurantsContainer.innerHTML = '';
+  if (url == '#/explore' || url == '') {
+    const searchButton = document.querySelector('search-bar'),
+      restaurantsContainer = document.getElementById("restaurant-container");;
 
-    searchQuery(searchButton.value);
-  };
+    const onButtonSearchClicked = (e) => {
+      e.preventDefault();
+      restaurantsContainer.innerHTML = '';
 
-  searchButton.clickEvent = onButtonSearchClicked;
+      searchQuery(searchButton.value);
+    };
+
+    searchButton.clickEvent = onButtonSearchClicked;
+  }
+
 });
