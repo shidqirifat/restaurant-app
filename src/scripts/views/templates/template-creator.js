@@ -67,6 +67,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
         <div class="detail-review">
           ${reviewItem}
         </div>
+        <div id="favoriteButtonContainer"></div>
       </div >
     `
   );
@@ -74,28 +75,28 @@ const createRestaurantDetailTemplate = (restaurant) => {
 
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-card">
-  <span class="restaurant-rating">
-    <i class="fas fa-star"></i>
-    <h5>${restaurant.rating % 1 === 0 ? restaurant.rating + '.0' : restaurant.rating}</h5>
-  </span>
-  <img class="restaurant-img" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Foto ${restaurant.name}" />
-  <div class="restaurant-content">
-    <h4 class="restaurant-city">${restaurant.city}</h4>
-    <h3 class="restaurant-name"><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a></h3>
-    <h4 class="restaurant-desc">${restaurant.description}</h4>
-  </div>
+    <span class="restaurant-rating">
+      <i class="fas fa-star"></i>
+      <h5>${restaurant.rating % 1 === 0 ? restaurant.rating + '.0' : restaurant.rating}</h5>
+    </span>
+    <img class="restaurant-img" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Foto ${restaurant.name}" />
+    <div class="restaurant-content">
+      <h4 class="restaurant-city">${restaurant.city}</h4>
+      <h3 class="restaurant-name"><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a></h3>
+      <h4 class="restaurant-desc">${restaurant.description}</h4>
+    </div>
   </div>
 `;
 
 const createFavoriteButtonTemplate = () => `
-  <button aria-label="like this restaurant" id="likeButton" class="like">
-     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <button aria-label="like this restaurant">
+    <i class="far fa-heart" aria-hidden="true" id="favoriteButton"></i>
   </button>
 `;
 
 const createFavoritedButtonTemplate = () => `
-  <button aria-label="unlike this restaurant" id="likeButton" class="like">
-    <i class="fa fa-heart" aria-hidden="true"></i>
+  <button aria-label="unlike this restaurant">
+    <i class="fa fa-heart" aria-hidden="true" id="favoriteButton"></i>
   </button>
 `;
 

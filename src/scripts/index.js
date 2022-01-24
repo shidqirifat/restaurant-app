@@ -4,9 +4,6 @@ import App from './views/app';
 import swRegister from './utils/sw-register';
 import CONFIG from './globals/config';
 import './views/components/search-bar';
-import '@fortawesome/fontawesome-free/js/brands';
-import '@fortawesome/fontawesome-free/js/solid';
-import '@fortawesome/fontawesome-free/js/fontawesome';
 
 const app = new App({
   button: document.querySelector('.menu-icon'),
@@ -36,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (url == '#/explore' || url == '') {
     const searchButton = document.querySelector('search-bar'),
-      restaurantsContainer = document.getElementById("restaurant-container");;
+      restaurantsContainer = document.getElementById("restaurant-container");
 
     const onButtonSearchClicked = (e) => {
       e.preventDefault();
@@ -47,5 +44,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     searchButton.clickEvent = onButtonSearchClicked;
   }
-
 });

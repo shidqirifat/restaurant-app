@@ -4,6 +4,7 @@ import Detail from '../views/pages/detail';
 
 const routes = {
   '/': ListRestaurant, // default page
+  '/home': ListRestaurant,
   '/detail/:id': Detail,
   // '/favorite': Favorite,
 };

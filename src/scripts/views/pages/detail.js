@@ -8,7 +8,6 @@ const Detail = {
   async render() {
     return `
       <div id="restaurant" class="restaurant"></div>
-      <div id="likeButtonContainer"></div>
     `;
   },
 
@@ -19,16 +18,14 @@ const Detail = {
     console.log(restaurant);
     restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
 
-    // FavoriteButtonInitiator.init({
-    //   likeButtonContainer: document.querySelector('#likeButtonContainer'),
-    //   restaurant: {
-    //     id: restaurant.id,
-    //     title: restaurant.title,
-    //     overview: restaurant.overview,
-    //     backdrop_path: restaurant.backdrop_path,
-    //     vote_average: restaurant.vote_average,
-    //   },
-    // });
+    FavoriteButtonInitiator.init({
+      favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
+      restaurant: {
+        id: restaurant.id,
+        name: restaurant.name,
+        pictureId: restaurant.pictureId
+      },
+    });
   },
 };
 
