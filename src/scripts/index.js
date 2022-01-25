@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const url = window.location.hash;
 
-  if (url == '#/explore' || url == '') {
+  if (url == '#/explore' || url == '' || url == '#/home') {
     const searchButton = document.querySelector('search-bar'),
       restaurantsContainer = document.getElementById("restaurant-container");
 

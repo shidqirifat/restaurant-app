@@ -67,6 +67,14 @@ const createRestaurantDetailTemplate = (restaurant) => {
         <div class="detail-review">
           ${reviewItem}
         </div>
+        <div class="review-new">
+          <h3>Berikan Review:</h3>
+          <form>
+            <input type="text" id="review-name" placeholder="Nama kamu" autocomplete="off">
+            <textarea id="review-text" placeholder="Tulis komentar kamu di sini"></textarea>
+            <button id="review-submit" type="submit">Kirim review</button>
+          </form>
+        </div>
         <div id="favoriteButtonContainer"></div>
       </div >
     `

@@ -8,6 +8,20 @@
 :root {
   --img-height: 250px;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(194, 194, 194);
+}
 html {
   scroll-behavior: smooth;
 }
@@ -23,6 +37,14 @@ button {
 }
 img {
   display: block;
+}
+a {
+  text-decoration: none;
+  color: #343a40;
+  transition: all 0.2s;
+}
+a:hover {
+  text-decoration: underline;
 }
 .skip-content {
   position: absolute;
@@ -71,7 +93,7 @@ header h1 {
   height: 0;
   position: fixed;
   z-index: 20;
-  top: 77px;
+  top: 64px;
   left: 0;
   color: white;
   transition: all 0.3s;
@@ -99,13 +121,13 @@ header li a {
   padding: 0.8rem;
 }
 .menu-btn {
-  width: 44px !important;
-  height: 44px;
+  font-size: 2rem;
 }
 
 main {
   background: #e1e8eb;
   padding-bottom: 5rem;
+  min-height: calc(100vh - 54px);
 }
 
 .hero-container {
@@ -173,14 +195,14 @@ main {
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2rem;
 }
 .restaurant-card {
   padding: 1.8rem 1.4rem;
   padding-top: calc(var(--img-height) + 20px);
   height: max-content;
   position: relative;
-  background: #fdefef;
+  background: rgba(255, 255, 255, 0.836);
   overflow: hidden;
   border-radius: 12px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 30px -20px,
@@ -279,14 +301,13 @@ main {
 }
 .detail-content .categorie {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-bottom: 0.6rem;
 }
 .detail-content .categorie span {
   padding: 0.4rem 0.8rem;
   background: #343a40;
   color: #e1e8eb;
-  border-radius: 5px;
 }
 .detail-content p {
   font-size: 1.1rem;
@@ -327,6 +348,7 @@ main {
 }
 .detail-review .review-item {
   padding: 1rem;
+  background: rgba(255, 255, 255, 0.836);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .review-item h3 {
@@ -345,6 +367,57 @@ main {
   font-size: 0.95rem;
 }
 
+/* FORM REVIEW */
+.review-new {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.review-new h3 {
+  font-size: 1.1rem;
+}
+.review-new input {
+  width: 100%;
+  height: 40px;
+  padding: 0.3rem 1rem;
+  border: none;
+  outline: none;
+  word-spacing: 2px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.836);
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.review-new textarea {
+  width: 100%;
+  height: 150px;
+  border: none;
+  background: rgba(255, 255, 255, 0.836);
+  padding: 1rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: black;
+  word-spacing: 2px;
+  font-size: 1rem;
+  resize: vertical;
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.review-new input:focus,
+.review-new textarea:focus {
+  outline: 1px solid grey;
+}
+.review-new button {
+  margin-top: 0.2rem;
+  width: 100px;
+  height: 40px;
+  background: #343a40;
+  color: white;
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.review-new button:focus {
+  outline: 2px solid red;
+}
+
 /* FAVORITE BUTTON */
 #favoriteButtonContainer {
   position: absolute;
@@ -356,6 +429,23 @@ main {
 #favoriteButton {
   font-size: 3rem;
   color: red;
+}
+
+/* FAVORITE PAGE */
+.favorite-page {
+  margin: 3.6rem auto 1rem;
+  width: 90%;
+}
+#favorite-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin: 0 auto;
+  width: 90%;
+}
+#favorite-container .restaurant-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.836);
 }
 
 footer {
@@ -424,6 +514,9 @@ footer {
   }
   .menu-nav li {
     list-style-type: none;
+  }
+  #favorite-container .restaurant-card {
+    width: 50%;
   }
   header li a {
     text-decoration: none;
