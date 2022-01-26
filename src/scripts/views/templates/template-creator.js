@@ -3,27 +3,19 @@ import CONFIG from '../../globals/config';
 const createRestaurantDetailTemplate = (restaurant) => {
   const { foods, drinks } = restaurant.menus;
 
-  const foodItem = foods.map(food => {
-    return `<li>${food.name}</li>`;
-  }).join('');
+  const foodItem = foods.map((food) => `<li>${food.name}</li>`).join('');
 
-  const drinkItem = drinks.map(drink => {
-    return `<li>${drink.name}</li>`;
-  }).join('');
+  const drinkItem = drinks.map((drink) => `<li>${drink.name}</li>`).join('');
 
-  const categorieItem = restaurant.categories.map((categorie) => {
-    return `<span>${categorie.name}</span>`
-  }).join('');
+  const categorieItem = restaurant.categories.map((categorie) => `<span>${categorie.name}</span>`).join('');
 
-  const reviewItem = restaurant.customerReviews.map(review => {
-    return `
+  const reviewItem = restaurant.customerReviews.map((review) => `
         <div class="review-item">
           <h3 class="review-name">${review.name}</h3>
           <h3 class="review-text">${review.review}</h3>
           <h3 class="review-date">${review.date}</h3>
         </div>
-      `;
-  }).join('');
+      `).join('');
 
   return (
     `
@@ -43,7 +35,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
           <span class="detail-rating">
             <h3 class="rating-title">Rating: </h3>
             <i class="fas fa-star"></i>
-            <h5>${restaurant.rating % 1 === 0 ? restaurant.rating + '.0' : restaurant.rating}</h5>
+            <h5>${restaurant.rating % 1 === 0 ? `${restaurant.rating}.0` : restaurant.rating}</h5>
           </span>
           <h3 class="description-title">Deskripsi:<h3>
           <p class="description-text">${restaurant.description}</p>
@@ -79,20 +71,22 @@ const createRestaurantDetailTemplate = (restaurant) => {
       </div >
     `
   );
-}
+};
 
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-card">
-    <span class="restaurant-rating">
-      <i class="fas fa-star"></i>
-      <h5>${restaurant.rating % 1 === 0 ? restaurant.rating + '.0' : restaurant.rating}</h5>
-    </span>
-    <img class="restaurant-img" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Foto ${restaurant.name}" />
-    <div class="restaurant-content">
-      <h4 class="restaurant-city">${restaurant.city}</h4>
-      <h3 class="restaurant-name"><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a></h3>
-      <h4 class="restaurant-desc">${restaurant.description}</h4>
-    </div>
+    <a href="${`/#/detail/${restaurant.id}`}">
+      <span class="restaurant-rating">
+        <i class="fas fa-star"></i>
+        <h5>${restaurant.rating % 1 === 0 ? `${restaurant.rating}.0` : restaurant.rating}</h5>
+      </span>
+      <img class="restaurant-img" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Foto ${restaurant.name}" />
+      <div class="restaurant-content">
+        <h4 class="restaurant-city">${restaurant.city}</h4>
+        <h3 class="restaurant-name">${restaurant.name}</h3>
+        <h4 class="restaurant-desc">${restaurant.description}</h4>
+      </div>
+    </a>
   </div>
 `;
 
@@ -112,5 +106,5 @@ export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createFavoriteButtonTemplate,
-  createFavoritedButtonTemplate
+  createFavoritedButtonTemplate,
 };

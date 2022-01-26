@@ -1,9 +1,10 @@
+/* eslint-disable no-return-assign */
 const UrlParser = {
   parseActiveUrlWithCombiner() {
     const url = window.location.hash;
     const splitedUrl = this.urlSplitter(url);
     let afterCombine = this.urlCombiner(splitedUrl);
-    return afterCombine == '/explore' ? afterCombine = '/' : afterCombine;
+    return afterCombine === '/explore' ? afterCombine = '/' : afterCombine;
   },
 
   parseActiveUrlWithoutCombiner() {

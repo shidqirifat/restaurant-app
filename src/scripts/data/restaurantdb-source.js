@@ -20,8 +20,7 @@ class RestaurantDbSource {
   }
 
   static async reviewRestaurant(data) {
-    const response = await this.postData(API_ENDPOINT.REVIEW, data);
-    const responseJson = await response.json();
+    await this.postData(API_ENDPOINT.REVIEW, data);
   }
 
   static async postData(url = '', data = {}) {
@@ -29,9 +28,9 @@ class RestaurantDbSource {
       method: 'POST',
       mode: 'cors',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
   }
 }

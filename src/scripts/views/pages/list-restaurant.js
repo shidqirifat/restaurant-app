@@ -33,7 +33,7 @@ const ListRestaurant = {
   async refreshSearch(query) {
     const restaurants = await RestarantDbSource.search(query);
     const restaurantsContainer = document.querySelector('#restaurant-container');
-    if (restaurants.length == 0) {
+    if (restaurants.length === 0) {
       restaurantsContainer.innerHTML = `<h3 style="text-align: center"><span style="color: red">${query}</span> tidak ada dalam daftar pencarian</h3>`;
       return;
     }

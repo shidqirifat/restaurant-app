@@ -1,8 +1,7 @@
 import RestaurantDbSource from '../../data/restaurantdb-source';
 import UrlParser from '../../routes/url-parser';
-import { createRestaurantDetailTemplate, createFavoriteButtonTemplate } from '../templates/template-creator';
+import { createRestaurantDetailTemplate } from '../templates/template-creator';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
-
 
 const Detail = {
   async render() {
@@ -25,7 +24,7 @@ const Detail = {
         pictureId: restaurant.pictureId,
         rating: restaurant.rating,
         description: restaurant.description,
-        city: restaurant.city
+        city: restaurant.city,
       },
     });
 
@@ -37,13 +36,11 @@ const Detail = {
       const dataPost = {
         id: restaurant.id,
         name: reviewName.value,
-        review: reviewText.value
+        review: reviewText.value,
       };
 
-      console.log(dataPost);
-      const postReview = await RestaurantDbSource.reviewRestaurant(dataPost);
-
-    })
+      await RestaurantDbSource.reviewRestaurant(dataPost);
+    });
   },
 };
 

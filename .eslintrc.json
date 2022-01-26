@@ -11,6 +11,6 @@
   },
   "rules": {
     "linebreak-style": ["error", "windows"],
-    "no-console": [{ "allow": ["warn", "error", "log"] }]
+    "no-console": "off"
   }
 }
