@@ -56,15 +56,15 @@ const createRestaurantDetailTemplate = (restaurant) => {
           </div>
         </div >
         <h3 class="review-title">Review Pelanggan:</h3>
-        <div class="detail-review">
+        <div id="review-wrapper" class="detail-review">
           ${reviewItem}
         </div>
         <div class="review-new">
           <h3>Berikan Review:</h3>
-          <form>
+          <form id="form-review-submit">
             <input type="text" id="review-name" placeholder="Nama kamu" autocomplete="off">
             <textarea id="review-text" placeholder="Tulis komentar kamu di sini"></textarea>
-            <button id="review-submit" type="submit">Kirim review</button>
+            <button type="submit">Kirim review</button>
           </form>
         </div>
         <div id="favoriteButtonContainer"></div>
@@ -102,9 +102,31 @@ const createFavoritedButtonTemplate = () => `
   </button>
 `;
 
+const createEmptyRestaurantFavTemplate = () => `
+  <div class="empty-fav-restaurant">
+    <h3>Tidak Ada Restaurant Favorite Saat Ini</h3>
+    <img src="/images/empty-restaurant.jpg" alt="Empty Favorite Restaurant" class="empty-restaurant-image" />
+    <button>
+      <a href="#/home">Eksplore Restaurant</a>
+    </button>
+  </div>
+`;
+
+const createReviewTemplate = (reviews) => (
+  reviews.map((review) => `
+        <div class="review-item">
+          <h3 class="review-name">${review.name}</h3>
+          <h3 class="review-text">${review.review}</h3>
+          <h3 class="review-date">${review.date}</h3>
+        </div>
+      `).join('')
+);
+
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createFavoriteButtonTemplate,
   createFavoritedButtonTemplate,
+  createReviewTemplate,
+  createEmptyRestaurantFavTemplate,
 };

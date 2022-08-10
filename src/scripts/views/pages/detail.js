@@ -1,6 +1,6 @@
 import RestaurantDbSource from '../../data/restaurantdb-source';
 import UrlParser from '../../routes/url-parser';
-import { createRestaurantDetailTemplate } from '../templates/template-creator';
+import { createRestaurantDetailTemplate, createReviewTemplate } from '../templates/template-creator';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 
 const Detail = {
@@ -30,16 +30,21 @@ const Detail = {
 
     const reviewName = document.getElementById('review-name');
     const reviewText = document.getElementById('review-text');
-    const reviewButton = document.getElementById('review-submit');
+    const reviewForm = document.getElementById('form-review-submit');
 
-    reviewButton.addEventListener('click', async () => {
+    reviewForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
       const dataPost = {
         id: restaurant.id,
         name: reviewName.value,
         review: reviewText.value,
       };
 
-      await RestaurantDbSource.reviewRestaurant(dataPost);
+      const review = await RestaurantDbSource.reviewRestaurant(dataPost);
+      const reviewContainer = document.querySelector('#review-wrapper');
+      reviewContainer.innerHTML = createReviewTemplate(review);
+      reviewName.value = '';
+      reviewText.value = '';
     });
   },
 };

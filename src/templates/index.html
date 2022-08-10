@@ -1,75 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <meta name="theme-color" content="#343a40" />
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" href="/logo.png" />
-    <title>Cafe Hunter</title>
-    <style type="text/css">
-      .preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
-        background-color: #fff;
-      }
-      .preloader .loading {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        font: 14px arial;
-      }
-    </style>
-    <script>
-      $(document).ready(function () {
-        $(".preloader").fadeOut();
-      });
-    </script>
-    <script
-      src="https://kit.fontawesome.com/43c91d6ead.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div class="preloader">
-      <div class="loading">
-        <img src="/images/tenor.gif" width="600" />
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Website untuk mencari referensi restoran di sekitar kamu">
+  <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+  <meta name="theme-color" content="#343a40" />
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/logo.png" />
+  <title>Cafe Hunter</title>
+  <style type="text/css">
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9;
+      background-color: #fff;
+    }
+
+    .preloader .loading {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font: 14px arial;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      $(".preloader").fadeOut();
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/43c91d6ead.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="preloader">
+    <div class="loading">
+      <img src="/images/tenor.gif" width="600" />
     </div>
-    <a href="#/explore" class="skip-content">Skip to content</a>
-    <header>
-      <h1>Cafe Hunter</h1>
-      <button class="menu-icon" aria-label="Menu">
-        <i class="fas fa-hamburger menu-btn"></i>
-      </button>
-      <nav class="menu-nav active">
-        <ul>
-          <li><a href="#/home">Home</a></li>
-          <li><a href="#/favorite">Favorite</a></li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/shidqirifatpangestu/"
-              target="_blank"
-              >About Us</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
+  </div>
+  <a href="#/explore" class="skip-content">Skip to content</a>
+  <header>
+    <h1>Cafe Hunter</h1>
+    <button class="menu-icon" aria-label="Menu">
+      <i class="fas fa-hamburger menu-btn"></i>
+    </button>
+    <nav class="menu-nav active">
+      <ul>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/favorite">Favorite</a></li>
+        <li>
+          <a href="https://www.linkedin.com/in/shidqirifatpangestu/" target="_blank" rel="noreferrer">About Us</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-      <span class="bg-header"></span>
-      <div id="mainContent"></div>
-    </main>
+  <main>
+    <span class="bg-header"></span>
+    <div id="mainContent"></div>
+  </main>
 
-    <footer>Copyright © 2022 - Cafe Hunter</footer>
-  </body>
+  <footer>Copyright © 2022 - Cafe Hunter</footer>
+</body>
+
 </html>
