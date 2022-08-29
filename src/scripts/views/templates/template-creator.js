@@ -20,7 +20,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
   return (
     `
       <div class="detail-container">
-        <h2 class="detail-name">${restaurant.name}</h2>
+        <h2 class="restaurant-name">${restaurant.name}</h2>
         <div class="detail-image">
           <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" />
         </div>
