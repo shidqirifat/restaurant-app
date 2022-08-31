@@ -1,8 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
-const path = require('path');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const ImageminPngquant = require('imagemin-pngquant');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -30,6 +34,9 @@ module.exports = {
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: 'index.html',
     }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.resolve(__dirname, 'src/scripts/sw.js'),
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -38,8 +45,19 @@ module.exports = {
         },
       ],
     }),
-    new ServiceWorkerWebpackPlugin({
-      entry: path.resolve(__dirname, 'src/scripts/sw.js'),
+    new ImageminWebpackPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      pngquant: { quality: 80 },
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+        ImageminPngquant({
+          quality: [0.4, 0.5],
+        }),
+      ],
     }),
+    new CleanWebpackPlugin(),
   ],
 };
