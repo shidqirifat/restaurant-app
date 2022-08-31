@@ -105,7 +105,12 @@ const createFavoritedButtonTemplate = () => `
 const createEmptyRestaurantFavTemplate = () => `
   <div class="empty-fav-restaurant">
     <h3>Tidak Ada Restaurant Favorite Saat Ini</h3>
-    <img src="/images/empty-restaurant.jpg" alt="Empty Favorite Restaurant" class="empty-restaurant-image" />
+    <picture>
+      <source class="empty-restaurant-image" media="(max-width: 600px)" srcset="./images/empty-restaurant-small.jpg">
+      <img src='./images/empty-restaurant-large.jpg'
+        class="empty-restaurant-image"
+        alt="Empty Favorite Restaurant">
+    </picture>
     <button>
       <a href="#/home">Eksplore Restaurant</a>
     </button>

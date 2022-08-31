@@ -5,12 +5,13 @@ const ListRestaurant = {
   async render() {
     return `
       <div class="hero-container">
-        <img
-          class="hero-img"
-          src="./images/heros/hero-image_4.jpg"
-          width="450"
-          alt=""
-        />
+        <picture>
+          <source class="hero-img" media="(max-width: 600px)" srcset="./images/hero-image-small.jpg">
+          <img src='./images/hero-image-large.jpg'
+            class="hero-img"
+            width="450" 
+            alt="Hero Image">
+        </picture>
         <a href="#/explore"
           >EXPLORE <i class="fas fa-angle-double-down arrow-explore"></i
         ></a>

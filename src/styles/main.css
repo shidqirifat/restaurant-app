@@ -159,6 +159,12 @@ main {
   position: relative;
 }
 
+.empty-restaurant-image {
+  width: 100%;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
 .hero-container a {
   display: flex;
   gap: 0.5rem;
@@ -602,6 +608,10 @@ footer {
 
   .hero-img {
     height: 500px;
+  }
+
+  .empty-restaurant-image {
+    max-width: 600px;
   }
 
   .menu-nav ul {
