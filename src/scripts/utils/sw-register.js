@@ -1,8 +1,17 @@
-import runtime from 'serviceworker-webpack-plugin/lib/runtime';
+/* eslint-disable no-alert */
+// import runtime from 'serviceworker-webpack-plugin/lib/runtime';
+
+const registerSW = async (runtime) => {
+  await runtime.register();
+};
 
 const swRegister = async () => {
   if ('serviceWorker' in navigator) {
-    await runtime.register();
+    import('serviceworker-webpack-plugin/lib/runtime')
+      .then((module) => module.default)
+      .then(registerSW)
+      .catch((error) => alert(error));
+
     return;
   }
 

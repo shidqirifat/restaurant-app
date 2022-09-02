@@ -80,7 +80,7 @@ const createRestaurantItemTemplate = (restaurant) => `
         <i class="fas fa-star"></i>
         <h5>${restaurant.rating % 1 === 0 ? `${restaurant.rating}.0` : restaurant.rating}</h5>
       </span>
-      <img class="restaurant-img" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Foto ${restaurant.name}" />
+      <img class="restaurant-img lazyload" data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Foto ${restaurant.name}" />
       <div class="restaurant-content">
         <h4 class="restaurant-city">${restaurant.city}</h4>
         <h3 class="restaurant-name">${restaurant.name}</h3>
