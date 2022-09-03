@@ -20,7 +20,6 @@ Scenario('liking one restaurant', async ({ I }) => {
   I.amOnPage('/');
 
   I.waitForElement(QUERY_DOCUMENT.titleRestaurantCard, 10);
-
   I.seeElement(QUERY_DOCUMENT.titleRestaurantCard);
 
   const firstResturant = locate(QUERY_DOCUMENT.titleRestaurantCard).first();
