@@ -6,6 +6,8 @@
     "scripts": {
         "start-dev": "webpack-dev-server --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js",
+        "serve": "http-server dist --port 9000",
+        "build-serve": "npm run build && npm run serve",
         "build-video": "node build-video.js",
         "build-image": "node sharp.js",
         "test": "karma start",
@@ -27,6 +29,7 @@
         "eslint-plugin-jasmine": "^4.1.1",
         "fluent-ffmpeg": "^2.1.2",
         "html-webpack-plugin": "^4.3.0",
+        "http-server": "^14.1.1",
         "imagemin-mozjpeg": "^9.0.0",
         "imagemin-pngquant": "^9.0.2",
         "imagemin-webpack-plugin": "^2.4.2",
@@ -47,12 +50,15 @@
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0",
         "webpack-merge": "^5.0.9",
-        "whatwg-fetch": "^3.2.0"
+        "whatwg-fetch": "^3.2.0",
+        "workbox-precaching": "^6.5.4",
+        "workbox-webpack-plugin": "^6.5.4"
     },
     "dependencies": {
         "idb": "^5.0.4",
         "lazysizes": "^5.3.2",
         "regenerator-runtime": "^0.13.5",
-        "serviceworker-webpack-plugin": "^1.0.1"
+        "serviceworker-webpack-plugin": "^1.0.1",
+        "workbox-window": "^6.5.4"
     }
 }

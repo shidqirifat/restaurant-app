@@ -1,20 +1,13 @@
-/* eslint-disable no-restricted-globals */
-import 'regenerator-runtime';
-import CacheHelper from './utils/cache-helper';
+import { precacheAndRoute } from 'workbox-precaching';
 
-const { assets } = global.serviceWorkerOption;
+// Do precaching
+precacheAndRoute(self.__WB_MANIFEST);
 
-self.addEventListener('install', (event) => {
-  console.log('Installing Service Worker ...');
-  event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
+self.addEventListener('install', () => {
+  console.log('Service Worker: Installed');
+  self.skipWaiting();
 });
 
-self.addEventListener('activate', (event) => {
-  console.log('Activating Service Worker ...');
-  event.waitUntil(CacheHelper.deleteOldCache());
-});
-
-self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
-  event.respondWith(CacheHelper.revalidateCache(event.request));
+self.addEventListener('push', () => {
+  console.log('Service Worker: Pushed');
 });
