@@ -5,11 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start-dev": "webpack-dev-server --config webpack.dev.js",
-        "build": "webpack --config webpack.prod.js && npm run build-media",
+        "build": "webpack --config webpack.prod.js && npm run build-image",
         "serve": "http-server dist --port 9000",
         "build-serve": "npm run build && npm run serve",
-        "build-media": "npm run build-image && npm run build-video",
-        "build-video": "node build-video.js",
         "build-image": "node sharp.js",
         "test": "karma start",
         "e2e": "codeceptjs run --steps"
@@ -28,7 +26,6 @@
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-jasmine": "^4.1.1",
-        "fluent-ffmpeg": "^2.1.2",
         "html-webpack-plugin": "^4.3.0",
         "http-server": "^14.1.1",
         "imagemin-mozjpeg": "^9.0.0",
