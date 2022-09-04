@@ -1,6 +1,5 @@
 const { merge } = require('webpack-merge');
 const path = require('path');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -9,7 +8,4 @@ module.exports = merge(common, {
     contentBase: path.resolve(__dirname, 'dist'),
     port: 9000,
   },
-  plugins: [
-    new BundleAnalyzerPlugin(),
-  ],
 });

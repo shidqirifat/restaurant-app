@@ -505,10 +505,8 @@ main {
 }
 
 #favorite-container {
-  /* display: flex;
-  justify-content: flex-start; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin: 0 auto;
   width: 90%;

@@ -5,6 +5,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPngquant = require('imagemin-pngquant');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -67,6 +69,10 @@ module.exports = {
         },
       ],
     }),
+    new WorkboxWebpackPlugin.InjectManifest({
+      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+      swDest: './sw.bundle.js',
+    }),
     new ImageminWebpackPlugin({
       test: /\.(jpe?g|png)$/i,
       pngquant: { quality: 80 },
@@ -79,6 +85,9 @@ module.exports = {
           quality: [0.4, 0.5],
         }),
       ],
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
     }),
   ],
 };
